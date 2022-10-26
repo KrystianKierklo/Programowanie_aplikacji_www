@@ -48,9 +48,116 @@ body {
 
 .header-bg {
 	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	padding-right: 30px;
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.clock {
+	position: relative;
+	width: 250px;
+	height: 250px;
+	background-image: url('../img/clock.jpg');
+	background-size: cover;
+	background-position: 50% 50%;
+	border-radius: 50%;
+	border: 2px solid black;
+
+	.number {
+		position: absolute;
+		--rotation: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		transform: rotate(var(--rotation));
+		font-size: 20px;
+		font-weight: bold;
+		color: white;
+	}
+
+	.number1 {
+		--rotation: 30deg;
+	}
+	.number2 {
+		--rotation: 60deg;
+	}
+	.number3 {
+		--rotation: 90deg;
+	}
+	.number4 {
+		--rotation: 120deg;
+	}
+	.number5 {
+		--rotation: 150deg;
+	}
+	.number6 {
+		--rotation: 180deg;
+	}
+	.number7 {
+		--rotation: 210deg;
+	}
+	.number8 {
+		--rotation: 240deg;
+	}
+	.number9 {
+		--rotation: 270deg;
+	}
+	.number10 {
+		--rotation: 300deg;
+	}
+	.number11 {
+		--rotation: 330deg;
+	}
+	.number12 {
+		--rotation: 360deg;
+	}
+
+	.hand {
+		--rotation: 30;
+		position: absolute;
+		bottom: 50%;
+		left: 50%;
+
+		transform-origin: bottom;
+		transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+		background-color: black;
+		border: 1px solid white;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		z-index: 10;
+	}
+	.second {
+		width: 3px;
+		height: 45%;
+		background-color: red;
+	}
+	.minute {
+		width: 7px;
+		height: 40%;
+		background-color: black;
+	}
+	.hour {
+		width: 10px;
+		height: 30%;
+		background-color: black;
+	}
+}
+
+.clock::after {
+	content: '';
+	position: absolute;
+	background-color: black;
+	z-index: 11;
+	width: 15px;
+	height: 15px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
 }
 
 nav {
@@ -206,7 +313,7 @@ footer {
 	i:hover {
 		color: $hover-color;
 	}
-	.odd{
+	.odd {
 		background-color: $nav-color;
 	}
 }
