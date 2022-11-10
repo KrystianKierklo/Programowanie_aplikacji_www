@@ -24,35 +24,45 @@ var decimal = 0;
 //     windows.open("","Display window","toolbar-no,directories-no,menubar-no");
 // }
 
-function clear (form){
-    form.input.valule = 0;
-    form.display.value = 0;
-    decimal = 0;
+function clear(form) {
+	form.input.valule = 0;
+	form.display.value = 0;
+	decimal = 0;
 }
 
-function changeBackground(hexNumber){
-    document.bgColor = hexNumber
+function changeBackground(hexNumber) {
+	document.bgColor = hexNumber;
 }
 
-
-setInterval(setClock, 1000)
-const hourHand = document.querySelector('[data-hour-hand]')
-const minuteHand = document.querySelector('[data-minute-hand]')
-const secondHand = document.querySelector('[data-second-hand]')
-
+setInterval(setClock, 1000);
+const hourHand = document.querySelector('[data-hour-hand]');
+const minuteHand = document.querySelector('[data-minute-hand]');
+const secondHand = document.querySelector('[data-second-hand]');
 
 function setClock() {
-	const currentDate = new Date()
-	const secondsRatio = currentDate.getSeconds() / 60
-	const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60
-	const hoursRatio = (minutesRatio + currentDate.getHours()) / 12
-	setRotation(secondHand, secondsRatio)
-	setRotation(minuteHand, minutesRatio)
-	setRotation(hourHand, hoursRatio)
+	const currentDate = new Date();
+	const secondsRatio = currentDate.getSeconds() / 60;
+	const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60;
+	const hoursRatio = (minutesRatio + currentDate.getHours()) / 12;
+	setRotation(secondHand, secondsRatio);
+	setRotation(minuteHand, minutesRatio);
+	setRotation(hourHand, hoursRatio);
 }
 
 function setRotation(element, rotationRatio) {
-	element.style.setProperty('--rotation', rotationRatio * 360)
+	element.style.setProperty('--rotation', rotationRatio * 360);
 }
 
-setClock()
+setClock();
+
+$('#Test1').on('click', function () {
+	$(this).animate(
+		{
+			width: '500px',
+			opacity: 0.4,
+			fontSize: '3em',
+			borderWidth: '10px',
+		},
+		1500
+	);
+});
